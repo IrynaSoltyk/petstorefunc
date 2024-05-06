@@ -1,5 +1,6 @@
 package petstore.soltyk;
 
+
 import com.microsoft.azure.functions.ExecutionContext;
 import com.microsoft.azure.functions.OutputBinding;
 import com.microsoft.azure.functions.annotation.BlobOutput;
@@ -22,7 +23,9 @@ public class Function {
                     OutputBinding<String> outputItem,
             final ExecutionContext context) {
 
-            outputItem.setValue(message);
+        context.getLogger().info("message received " +  message);
+
+        outputItem.setValue(message);
 
     }
 }
